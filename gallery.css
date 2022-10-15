@@ -1,0 +1,206 @@
+@import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Clicker+Script&family=Rajdhani:wght@300;500;600;700&display=swap');
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+    font-family: Rajdhani;
+}
+body{
+    background-color: black;
+}
+
+.nav__body{
+    width: 100%;
+    height: 4rem
+}
+.mainNav{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: hsla(0 0% 0% /.5);
+    padding: 0 1rem;
+}
+@supports(backdrop-filter: blur(1rem)){
+    .mainNav{
+        background-color: hsla(0 0% 100% /.4);
+        backdrop-filter: blur(1rem);
+    }
+}
+.mainNav .logo{
+    display: flex;
+}
+.logo h1{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.8rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: white;
+    position: relative;
+}
+.logo h1 .o{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-transform: uppercase;
+    font-size: 2.5rem;
+    color: red;
+    -webkit-text-stroke: 1px white;
+    margin-left: .4rem;
+}
+.logo h1::after{
+    position: absolute;
+    content: 'studio';
+    font-size: .8rem;
+    font-weight: bold;
+    top: 40%;
+    right: -.5rem;
+}
+.nav__List{
+    display: flex;
+}
+.nav__List li{
+    margin-inline-end: 3rem;
+}
+.nav__List li a i{
+    margin-right: .5rem;
+}
+.nav__List li a{
+    color: white;
+    font-size: 1rem;
+    text-transform: capitalize;
+    font-weight: bold;
+}
+.primary__navigator{
+    float: right;
+    width: fit-content;
+    height: fit-content;
+    padding: .5rem;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    height: fit-content;
+    border: 1px solid transparent;
+    border-radius: .5rem;
+}
+
+@media (max-width:768px) {
+    .mainNav{
+        position: fixed;
+        height: 14%;
+        top: 0;
+        z-index: 1000;
+        background-color: hsl(0, 0%, 0%, .5);
+    }
+    @supports(backdrop-filter: blur(1rem)){
+        .mainNav{
+            background-color: hsla(0 0% 100% /.4);
+            backdrop-filter: blur(1rem);
+        }
+    }
+    .mainNav .logo{
+        position: absolute;
+    }
+    .mainNav .primary__navigator{
+        position: fixed;
+        right: 1.5rem;
+        top: .7rem;
+        display: flex;
+    }
+    .mainNav .primary__navigator .close{
+        display: none;
+    }
+    .mainNav .nav__List{
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background-color: hsl(0, 0%, 0%, .9);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        transform: translateX(100%);
+        transform-origin: left;
+        transition: all .6s ease-out;
+    }
+    @supports(backdrop-filter: blur(1rem)){
+        .mainNav .nav__List{
+            background-color: hsla(0 0% 100% /.9);
+            backdrop-filter: blur(1rem);
+        }
+    }
+    .nav__List.showPrimaryNav{
+        transform: translateX(0);
+    }
+    .mainNav .nav__List li{
+        margin-block-end: 5rem;
+    }
+    .mainNav .nav__List li a{
+        color: red;
+        font-size: 1rem;
+        font-weight: 100;
+        line-height: 2rem;
+        letter-spacing: .4rem;
+        text-transform: uppercase;
+    }
+}
+
+.myWorks{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+    gap: 1rem;
+    margin-top: .5rem;
+    
+    transition: all .6s;
+    animation: slideIn .6s linear forwards;
+}
+
+@keyframes slideIn{
+    0%{
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    15%{
+        opacity: 0.1;
+    }
+    85%{
+        opacity: 0.1;
+    }
+    98%{
+        opacity: .5;
+    }
+    100%{
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.myWorks img{
+    width: 100%;
+    border: 1px solid white;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    border-radius: 1rem;
+}
+.myWorks iframe{
+    border: 1px solid white;
+    border-radius: 1rem;
+}
+@media (max-width:966px) {
+   .myWorks{
+    margin-top: 5rem;
+   }
+    
+}
+@media (max-width:813px) {
+    .myWorks iframe{
+        height: 20rem;
+    }
+}
